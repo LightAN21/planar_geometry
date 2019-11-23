@@ -1,27 +1,7 @@
-.outerDiv {
-    color: #fff;
-    height: 100%;
-    width: 400px;
-    margin: 0px auto;
+#canvas_div {
+    position: relative;
 }
 
-.File_list {
-    background-color: #EEE8AA;
-    color: #000;
-    height: 100%;
-    width: 25%;
-    float: left;
-}
-
-.sep {
-    background-color: orange;
-    height: 10px;
-}
-
-.Stategies_list {
-    background-color: #EEE8AA;
-    color: #000;
-    height: 100%;
-    width: 73%;
-    float: right;
+#canvas_div canvas {
+    position: absolute;
 }
