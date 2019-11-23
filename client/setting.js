@@ -4,6 +4,10 @@ var setting = {
     canvas_height: 500,
     point_radius: 5,
     point_lineWidth: 2,
+    clear_point_square_width: 6,
+    point_color: "#CCCCCC",
+    point_border_color: '#000000',
+    mouse_on_point_color: "#239B56",
 };
 
 function reset() {
