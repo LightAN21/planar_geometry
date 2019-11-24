@@ -19,7 +19,7 @@ $(document).ready(function () {
     canvas_div.style.backgroundColor = "#424242";
     canvas_box.width = 500;
     canvas_box.height = 500;
-    canvas_box.style = 'position: absolute; z-index: 1000';
+    canvas_box.style = 'position: absolute; z-index: 0';
 
     $('#select').click(() => {
         curr_tool = 'select';
@@ -92,6 +92,18 @@ function draw_point(ctx, x, y, color = setting.point_color) {
 function clear_point(ctx, x, y) {
     var len = setting.clear_point_square_width;
     ctx.clearRect(x - len, y - len, 2 * len, 2 * len);
+}
+
+function get_top_layer_index(pos) {
+    var top_index = 0;
+    if (document.getElementById('layer1') == undefined)
+        return;
+    for (var i = 1; i < layer.length; i++) {
+        var imgData = layer[i].canvas.getImageData(pos.x - 2, pos.y - 2, 1, 1).data;
+        if (imgData[0] != 0)
+            top_index = i;
+    }
+    return top_index;
 }
 
 function canvas_mouse_move(event) {
