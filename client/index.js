@@ -27,8 +27,8 @@ $(document).ready(function () {
     $('#point').click(() => {
         curr_tool = 'point';
     });
-    $('#line').click(() => {
-        curr_tool = 'line';
+    $('#line_segment').click(() => {
+        curr_tool = 'line_segment';
     });
     $('#circle').click(() => {
         curr_tool = 'circle';
@@ -44,7 +44,7 @@ function canvas_mouse_down(event) {
 
     console.log('mouse down: (' + pos.x + ', ' + pos.y + ')');
     if (curr_tool == 'select') {
-        if (curr_detected_obj != 0 && curr_detected_obj.type == 'point') {
+        if (curr_detected_obj && curr_detected_obj.type == 'point') {
             var obj = curr_detected_obj;
             curr_clicked_obj = obj;
             clear_point(obj.canvas, obj.x, obj.y);
@@ -63,7 +63,7 @@ function canvas_mouse_down(event) {
             y: pos.y,
             layer: layer.length,
         });
-        draw_point(new_canvas, pos.x, pos.y);
+        draw_point(new_canvas, pos.x, pos.y, setting.mouse_on_point_color);
     }
     mouse_down = 1;
 }
@@ -112,17 +112,15 @@ function canvas_mouse_move(event) {
                 clear_point(obj.canvas, obj.x, obj.y);
                 draw_point(obj.canvas, obj.x, obj.y);
             }
-            curr_detected_obj = 0;
         }
+        curr_detected_obj = 0;
         if (top_index && layer[top_index].type == 'point') {
 
-            var pt = layer[top_index];
-            clear_point(pt.canvas, pt.x, pt.y);
-            draw_point(pt.canvas, pt.x, pt.y, setting.mouse_on_point_color);
-            curr_detected_obj = pt;
+            obj = layer[top_index];
+            clear_point(obj.canvas, obj.x, obj.y);
+            draw_point(obj.canvas, obj.x, obj.y, setting.mouse_on_point_color);
+            curr_detected_obj = obj;
         }
-        else
-            curr_detected_obj = 0;
     }
     if (mouse_down) {
         if (curr_clicked_obj) {
