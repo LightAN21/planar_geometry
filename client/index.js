@@ -19,7 +19,7 @@ $(document).ready(function () {
     canvas_div.style.backgroundColor = "#424242";
     canvas_box.width = 500;
     canvas_box.height = 500;
-    canvas_box.style = 'position: absolute; z-index: 0';
+    canvas_box.style = 'position: absolute; z-index: 1000';
 
     $('#select').click(() => {
         curr_tool = 'select';
