@@ -34,8 +34,8 @@ $(document).ready(function () {
         curr_tool = 'circle';
     });
 
-    canvas_div.onmousedown = canvas_mouse_down;
     canvas_div.onmousemove = canvas_mouse_move;
+    canvas_div.onmousedown = canvas_mouse_down;
     canvas_div.onmouseup = canvas_mouse_up;
 });
 
