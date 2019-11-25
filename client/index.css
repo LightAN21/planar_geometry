@@ -1,7 +1,20 @@
+body {
+    background-color: black;
+}
+
 #canvas_div {
     position: relative;
 }
 
 #canvas_div canvas {
     position: absolute;
+}
+
+#test {
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    width: 50px;
+    height: 70px;
+    background-color: blue;
 }
